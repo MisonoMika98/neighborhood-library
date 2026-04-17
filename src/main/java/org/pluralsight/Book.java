@@ -16,7 +16,7 @@ public class Book
 
 
 
-    // constructor for book
+    // constructor for book object
     public Book (String bookTitle, String isbn, String checkedOutTo, boolean isCheckedOut, int id){
         this.bookTitle = bookTitle;
         this.isbn = isbn;
@@ -36,26 +36,32 @@ public class Book
         this.name = name;
     }
 
+
     // get and set for book's title
     public String getBookTitle(){
         return bookTitle;
     }
+
     public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
     }
+
 
     // get and set for book's id
     public int getId(){
         return id;
     }
+
     public void setId(int id){
         this.id = id;
     }
+
 
     // get and set for book's isbn
     public String getIsbn(){
         return isbn;
     }
+
     public void setIsbn(String isbn){
         this.isbn = isbn;
     }

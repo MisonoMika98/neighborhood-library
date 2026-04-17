@@ -52,20 +52,35 @@ public class LibraryApplication
 
 
         // testing get/set and input
-        System.out.print("Please enter your name: ");
-        String name = userInput.nextLine().trim();
-        book.setName(name);
+//        System.out.print("Please enter your name: ");
+//        String name = userInput.nextLine().trim();
+//        book.setName(name);
+//
+//
+//        System.out.println(book.getName());
+    }
 
+    // print function that shows all available books
+    private static void printAllAvailableBooks() {
+        System.out.println("Available Books:");
+    }
 
-        System.out.println(book.getName());
+    // print function that shows all checked out/unavailable books
+    private static void printAllCheckedOutBooks() {
+        System.out.println("Checked out Books:");
     }
 
 
 
+    // helper method to load the array of books
+
     static Book[] loadBooks()
     {
+        String patronName = books[0].getName();
         Book[] books = new Book[] {
-                new Book("")
+                new Book("Naruto, Vol. 1", "9781569319000", "Checked out to: " + patronName, true, 1)
         };
+
+        return books;
     }
 }
