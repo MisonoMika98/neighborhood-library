@@ -2,18 +2,27 @@ package org.pluralsight;
 
 public class Book
 {
-    // instance variables for book
+    // instance variables for book (strings)
     private String name = "";
-    private String id = "";
-    private String isbn = "";
     private String bookTitle = "";
+    private String isbn = "";
+    private String checkedOutTo = "";
+
+    // int
+    private int id = 0;
+
+    // boolean
+    private boolean isCheckedOut;
+
 
 
     // constructor for book
-    public Book (){
+    public Book (String bookTitle, String isbn, String checkedOutTo, boolean isCheckedOut, int id){
         this.bookTitle = bookTitle;
-        this.id = id;
         this.isbn = isbn;
+        this.checkedOutTo = checkedOutTo;
+        this.isCheckedOut = isCheckedOut;
+        this.id = id;
     }
 
     // get and set for user's name
@@ -36,10 +45,10 @@ public class Book
     }
 
     // get and set for book's id
-    public String getId(){
+    public int getId(){
         return id;
     }
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 
