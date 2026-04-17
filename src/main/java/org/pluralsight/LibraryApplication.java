@@ -46,9 +46,9 @@ public class LibraryApplication
         }
         // exit screen
         System.out.println();
-        System.out.println("------------------------------");
+        System.out.println("----------------------------------------");
         System.out.println("Thanks for coming, see you next time!");
-        System.out.println("------------------------------");
+        System.out.println("-----------------------------------------");
 
 
         // testing get/set and input
@@ -76,9 +76,8 @@ public class LibraryApplication
 
     static Book[] loadBooks()
     {
-        String patronName = books[0].getName();
         Book[] books = new Book[] {
-                new Book("Naruto, Vol. 1", "9781569319000", "Checked out to: " + patronName, true, 1)
+                new Book("Naruto, Vol. 1", "9781569319000", "Chris Pratt", true, 1)
         };
 
         return books;
