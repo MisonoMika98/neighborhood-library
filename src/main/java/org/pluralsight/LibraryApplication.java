@@ -70,6 +70,18 @@ public class LibraryApplication
 
         System.out.println("    Book Title                 ISBN#            ID#");
         System.out.println("-------------------- ------------------------- ----");
+
+            // for loop that checks the array for books that are available
+            for (int i = 0; i < books.length; i++) {
+                Book book = books[i];
+
+                // note: fix formatting
+                if (!book.isCheckedOut()) {
+                    System.out.printf(book.getBookTitle(), book.getIsbn(), book.getId());
+                    System.out.println();
+                }
+
+        }
     }
 
     // print function that shows all checked out/unavailable books
@@ -82,6 +94,12 @@ public class LibraryApplication
         System.out.println("    Book Title                 ISBN#            ID#");
         System.out.println("-------------------- ------------------------- ----");
     }
+
+
+
+
+
+
 
 
 

@@ -66,6 +66,15 @@ public class Book
         this.isbn = isbn;
     }
 
+    // get and set for check out boolean
+    public boolean isCheckedOut(){
+        return isCheckedOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut){
+        isCheckedOut = checkedOut;
+    }
+
 
 //    public void checkOut(String name) {
 //        System.out.println(this.name);
