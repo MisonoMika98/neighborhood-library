@@ -75,9 +75,13 @@ public class Book
         isCheckedOut = checkedOut;
     }
 
+    // get and set for checkOutTo string
+    public String getCheckedOutTo(){
+        return checkedOutTo;
+    }
 
-//    public void checkOut(String name) {
-//        System.out.println(this.name);
-//    }
+    public void setCheckedOutTo(String checkedOutTo){
+        this.checkedOutTo = checkedOutTo;
+    }
 
 }

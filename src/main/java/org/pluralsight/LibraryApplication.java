@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LibraryApplication
 {
-    Scanner userInput = new Scanner(System.in);
+    static Scanner userInput = new Scanner(System.in);
 
     static Book[] books;
 
@@ -62,24 +62,40 @@ public class LibraryApplication
     }
 
     // print function that shows all available books
-    private static void printAllAvailableBooks() {
+    private void printAllAvailableBooks() {
         System.out.println();
         System.out.println("Available Books:");
         System.out.println("--------------------------------------------------------------------------");
         System.out.println();
 
-        System.out.println("    Book Title                 ISBN#            ID#");
-        System.out.println("-------------------- ------------------------- ----");
+        System.out.printf("%-22s %-25s %s%n", "Book Title", "ISBN#", "ID#");
+        System.out.printf("%-22s %-25s %s%n", "--------------------", "-------------------------", "----");
 
-            // for loop that checks the array for books that are available
-            for (int i = 0; i < books.length; i++) {
-                Book book = books[i];
+        // for loop that checks the array for books that are available and prints them
+        for (int i = 0; i < books.length; i++) {
+            Book book = books[i];
+            if (!book.isCheckedOut()) {
+                System.out.printf("%-22s %-25s %d%n", book.getBookTitle(), book.getIsbn(), book.getId());
+            }
+        }
 
-                // note: fix formatting
-                if (!book.isCheckedOut()) {
-                    System.out.printf(book.getBookTitle(), book.getIsbn(), book.getId());
-                    System.out.println();
-                }
+        // new options outside of the loop
+        System.out.println();
+        System.out.println("Would you like to check out a book today?");
+        System.out.println(" 1) Yes");
+        System.out.println(" 2) No, take me back to the home screen");
+        String selection2 = userInput.nextLine().trim().toLowerCase();
+
+        // new switch for selecting between the 2 options above
+        switch (selection2) {
+            case "1":
+                System.out.println("Please enter your name: ");
+                String name = userInput.nextLine().trim();
+                System.out.println("Please enter the ID# of the book you would like to check out: ");
+                int enterID = userInput.nextInt();
+                // clears buffer
+                userInput.nextLine();
+
 
         }
     }
