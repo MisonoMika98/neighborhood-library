@@ -25,7 +25,7 @@ public class Book
         this.id = id;
     }
 
-    // get and set for user's name
+    // get and set for user's name (note: might be useless?)
     public String getName()
     {
         return name;

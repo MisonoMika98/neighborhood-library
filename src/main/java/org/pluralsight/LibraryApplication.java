@@ -8,6 +8,7 @@ public class LibraryApplication
 
     static Book[] books;
 
+
     void main()
     {
         // populates the array with books
@@ -51,15 +52,10 @@ public class LibraryApplication
         System.out.println("Thanks for coming, see you next time!");
         System.out.println("-----------------------------------------");
 
-
-        // testing get/set and input
-//        System.out.print("Please enter your name: ");
-//        String name = userInput.nextLine().trim();
-//        book.setName(name);
-//
-//
-//        System.out.println(book.getName());
     }
+
+
+
 
     // print function that shows all available books
     private void printAllAvailableBooks() {
@@ -83,7 +79,7 @@ public class LibraryApplication
         System.out.println();
         System.out.println("Would you like to check out a book today?");
         System.out.println(" 1) Yes");
-        System.out.println(" 2) No, take me back to the home screen");
+        System.out.println(" x) No, take me back to the home screen");
         System.out.println("--------------------------------------------------------------------------");
         String selection2 = userInput.nextLine().trim().toLowerCase();
 
@@ -102,18 +98,20 @@ public class LibraryApplication
                     if (books[i].getId() == enterID) {
                         books[i].setCheckedOutTo(name);
                         books[i].setCheckedOut(true);
-                        System.out.println("Successfully checked out: " + books[i].getBookTitle());
+                        System.out.println("Successfully checked out: " + books[i].getBookTitle() + " to" + name);
                         break;
                     }
                 }
                 return;
 
                 // goes back to home screen
-                case "2":
+                case "x":
                     return;
 
         }
     }
+
+
 
     // print function that shows all checked out/unavailable books (WIP)
     private static void printAllCheckedOutBooks() {
@@ -132,6 +130,40 @@ public class LibraryApplication
             if (book.isCheckedOut()) {
                 System.out.printf("%-22s %-25s %-6d %s%n", book.getBookTitle(), book.getIsbn(), book.getId(), book.getCheckedOutTo());
             }
+        }
+
+        // new options outside the for loop above
+        System.out.println();
+        System.out.println("Would you like to check in a book today?");
+        System.out.println(" C) Yes");
+        System.out.println(" x) No, take me back to the home screen");
+        System.out.println("--------------------------------------------------------------------------");
+        String selection3 = userInput.nextLine().trim().toLowerCase();
+
+        // 3rd switch for selecting between the 2 options above
+        switch (selection3) {
+            case "c":
+                // only asks for the ID, no name
+                System.out.println("Please enter the ID# of the book you would like to check in: ");
+                int enterID = userInput.nextInt();
+                // clears buffer
+                userInput.nextLine();
+
+                // find the book by ID and checks it in
+                for (int i = 0; i < books.length; i++) {
+                    if (books[i].getId() == enterID) {
+                        books[i].setCheckedOut(false);
+                        // clears the name
+                        books[i].setCheckedOutTo("");
+                        System.out.println("Successfully checked in: " + books[i].getBookTitle());
+                        break;
+                    }
+                }
+                return;
+
+            // goes back to home screen
+            case "x":
+                return;
         }
 
     }
