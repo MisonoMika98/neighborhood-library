@@ -75,6 +75,7 @@ public class LibraryApplication
             }
         }
 
+
         // new options outside the for loop above
         System.out.println();
         System.out.println("Would you like to check out a book today?");
@@ -82,6 +83,7 @@ public class LibraryApplication
         System.out.println(" x) No, take me back to the home screen");
         System.out.println("--------------------------------------------------------------------------");
         String selection2 = userInput.nextLine().trim().toLowerCase();
+
 
         // 2nd switch for selecting between the 2 options above
         switch (selection2) {
@@ -113,7 +115,7 @@ public class LibraryApplication
 
 
 
-    // print function that shows all checked out/unavailable books (WIP)
+    // print function that shows all checked out/unavailable books
     private static void printAllCheckedOutBooks() {
         System.out.println();
         System.out.println("Checked out Books:");
@@ -132,6 +134,7 @@ public class LibraryApplication
             }
         }
 
+
         // new options outside the for loop above
         System.out.println();
         System.out.println("Would you like to check in a book today?");
@@ -139,6 +142,7 @@ public class LibraryApplication
         System.out.println(" x) No, take me back to the home screen");
         System.out.println("--------------------------------------------------------------------------");
         String selection3 = userInput.nextLine().trim().toLowerCase();
+
 
         // 3rd switch for selecting between the 2 options above
         switch (selection3) {
@@ -167,11 +171,6 @@ public class LibraryApplication
         }
 
     }
-
-
-
-
-
 
 
 
