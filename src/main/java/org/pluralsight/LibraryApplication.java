@@ -79,14 +79,15 @@ public class LibraryApplication
             }
         }
 
-        // new options outside of the loop
+        // new options outside the for loop above
         System.out.println();
         System.out.println("Would you like to check out a book today?");
         System.out.println(" 1) Yes");
         System.out.println(" 2) No, take me back to the home screen");
+        System.out.println("--------------------------------------------------------------------------");
         String selection2 = userInput.nextLine().trim().toLowerCase();
 
-        // new switch for selecting between the 2 options above
+        // 2nd switch for selecting between the 2 options above
         switch (selection2) {
             case "1":
                 System.out.println("Please enter your name: ");
@@ -96,19 +97,43 @@ public class LibraryApplication
                 // clears buffer
                 userInput.nextLine();
 
+                // find the book by ID and check it out
+                for (int i = 0; i < books.length; i++) {
+                    if (books[i].getId() == enterID) {
+                        books[i].setCheckedOutTo(name);
+                        books[i].setCheckedOut(true);
+                        System.out.println("Successfully checked out: " + books[i].getBookTitle());
+                        break;
+                    }
+                }
+                return;
+
+                // goes back to home screen
+                case "2":
+                    return;
 
         }
     }
 
-    // print function that shows all checked out/unavailable books
+    // print function that shows all checked out/unavailable books (WIP)
     private static void printAllCheckedOutBooks() {
         System.out.println();
         System.out.println("Checked out Books:");
         System.out.println("------------------------------------------------------------------------");
         System.out.println();
 
-        System.out.println("    Book Title                 ISBN#            ID#");
-        System.out.println("-------------------- ------------------------- ----");
+        System.out.printf("%-22s %-25s %-6s %s%n", "Book Title", "ISBN#", "ID#", "Checked Out To");
+        System.out.printf("%-22s %-25s %-6s %s%n", "--------------------", "-------------------------", "----", "--------------");
+
+
+        // for loop that checks the array for books that are checked out and prints them along with WHO has it checked out
+        for (int i = 0; i < books.length; i++) {
+            Book book = books[i];
+            if (book.isCheckedOut()) {
+                System.out.printf("%-22s %-25s %-6d %s%n", book.getBookTitle(), book.getIsbn(), book.getId(), book.getCheckedOutTo());
+            }
+        }
+
     }
 
 
